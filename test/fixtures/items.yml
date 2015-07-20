@@ -1,0 +1,5 @@
+one:
+  customer_id: 1
+  name: "8oz Watermelon"
+  price_in_cents: 300
+  category: "Fruit"
