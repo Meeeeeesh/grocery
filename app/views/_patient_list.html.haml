@@ -1,0 +1,63 @@
+/ haml
+-a = 0
+-b = 1
+%ul{class: "patient_list"}
+  -@patients.each_slice(10) do |row|
+    %li{class: "section #{a+1}"}
+    - a = a + 1
+      - row.each do |patient|
+        = patient.first_name
+        %br
+%ul{class: "link_list"}
+  - a.times do
+    %li{class: "link_#{b}"}
+      %a{class: "link_#{b}", number: b}
+        = "page #{b}"
+    - b += 1
+
+/ erb
+/ <% a = 0 %>
+/ <% b = 1 %>
+/ <ul class="patient_list">
+/  <% @patients.each_slice(10) do |row| %>
+/    <% a += 1 %>
+/    <% row.each do |patient| %>
+/    <%= patient.first_name %>
+/  <% end %>
+/  <ul class="link_list">
+/    <% a.times do %>
+/      <li class="link_<%= b %>">
+/        <a class="link_<%= b %>" number="<%= b %>">
+/          <%= "page #{b}" %>
+/        </a>
+/      </li>
+/    <% end %>
+/    <% b += 1 %>
+/  </ul>
+/ </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

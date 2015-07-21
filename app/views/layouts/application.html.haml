@@ -1,0 +1,21 @@
+/ !!!
+/ %html
+/   %head
+/     %title Grocery
+/     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+/     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+/     = csrf_meta_tags
+
+/   %body
+
+/     - if current_customer
+/       = "Signed in as: #{current_customer.name} | "
+/       = link_to 'Sign Out', '/signout'
+/     - else
+/       = link_to 'Sign In', '/signin'
+/       = " | "
+/       = link_to ' Sign Up', '/signup'
+
+/     .body
+
+/       = yield

@@ -1,15 +1,33 @@
-<ul>
-  <% @items.each do |item| %>
-    <li>
-      <div>
-        <strong>Name</strong>: <%= item.name %>
-      </div>
-      <div>
-        <strong>Category</strong>: <%= item.category %>
-      </div>
-      <div>
-        <strong>Price</strong>: <%= number_to_currency(item.price_in_cents / 100) %>
-      </div>
+<% a = 0%>
+<% b = 1 %>
+<h2>Grab N Grub List:</h2>
+
+<ul class="item_list">
+  <% @items.each_slice(20) do |item| %>
+    <li class="section_<%= a+1 %>">
+      <% a += 1 %>
+      <% row.each do |item| %>
+        <div class="customer_item_list">
+          <strong>Name</strong>: <%= item.name %>
+        </div>
+        <div class="customer_item_list">
+          <strong>Category</strong>: <%= item.category %>
+        </div>
+        <div class="customer_item_list">
+          <strong>Price</strong>: <%= number_to_currency(item.price_in_cents / 100) %>
+        </div>
+      <% end %>
     </li>
+  <% end %>
+</ul>
+
+<ul class="link_list">
+  <% a.times do %>
+    <li>
+      <a href="display:none;" class"link_<%= b %>" number="<%= b %>">
+        <%= "#{b}" %>
+      </a>
+    </li>
+  <% b += 1 %>
   <% end %>
 </ul>
